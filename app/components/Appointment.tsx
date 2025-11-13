@@ -132,7 +132,7 @@ export default function AppointmentBooking() {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-teal-50/40 py-20 px-4  py-16 px-6 lg:px-20 overflow-hidden" id="appointment">
+    <section className="relative min-h-screen bg-white bg-gradient-to-br from-white via-blue-50/30 to-teal-50/40 py-20 px-4  py-16 px-6 lg:px-20 overflow-hidden" id="appointment">
       {/* Floating Background Icons */}
       <Heart className="absolute top-20 left-10 w-24 h-24 text-[#2AA7FF] opacity-5 animate-pulse" />
       <Stethoscope
