@@ -130,7 +130,7 @@ export default function DepartmentsSection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative bg-gradient-to-br from-white via-blue-50/30 to-teal-50/40 py-20 px-4 sm:px-6 lg:px-20 overflow-hidden"
+      className="relative bg-white bg-gradient-to-br from-white via-blue-50/30 to-teal-50/40 py-20 px-4 sm:px-6 lg:px-20 overflow-hidden"
       id="departments"
     >
       {/* Decorative background blobs */}
