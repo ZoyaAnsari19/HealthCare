@@ -33,28 +33,32 @@ const doctorsData: Doctor[] = [
     name: "Dr. Arjun Mehta",
     specialization: "Cardiologist",
     experience: "15+ Years",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop",
   },
   {
     id: 2,
     name: "Dr. Priya Sharma",
     specialization: "Neurologist",
     experience: "12+ Years",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop",
   },
   {
     id: 3,
     name: "Dr. Rajesh Kumar",
     specialization: "Pediatrician",
     experience: "10+ Years",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&h=200&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&h=200&fit=crop",
   },
   {
     id: 4,
     name: "Dr. Ananya Desai",
     specialization: "Orthopedic",
     experience: "18+ Years",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=200&h=200&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=200&h=200&fit=crop",
   },
 ];
 
@@ -118,7 +122,13 @@ export default function AppointmentBooking() {
       setIsSubmitted(true);
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormData({ fullName: "", email: "", phone: "", date: "", concern: "" });
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          date: "",
+          concern: "",
+        });
         setSelectedDoctor(null);
         setSelectedTime("");
       }, 3000);
@@ -132,7 +142,10 @@ export default function AppointmentBooking() {
   };
 
   return (
-    <section className="relative min-h-screen bg-white bg-gradient-to-br from-white via-blue-50/30 to-teal-50/40 py-20 px-4  py-16 px-6 lg:px-20 overflow-hidden" id="appointment">
+    <section
+      className="relative min-h-screen bg-white bg-gradient-to-br from-white via-blue-50/30 to-teal-50/40 py-20 px-4  py-16 px-6 lg:px-20 overflow-hidden"
+      id="appointment"
+    >
       {/* Floating Background Icons */}
       <Heart className="absolute top-20 left-10 w-24 h-24 text-[#2AA7FF] opacity-5 animate-pulse" />
       <Stethoscope
@@ -159,7 +172,8 @@ export default function AppointmentBooking() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#2AA7FF] to-[#00D9A5] mx-auto mb-6"></div>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Choose your preferred doctor and select a convenient time slot for your consultation
+            Choose your preferred doctor and select a convenient time slot for
+            your consultation
           </p>
         </div>
 
@@ -183,7 +197,9 @@ export default function AppointmentBooking() {
                     key={doctor.id}
                     onClick={() => handleDoctorSelect(doctor)}
                     className={`relative cursor-pointer group transition-all duration-300 ${
-                      selectedDoctor?.id === doctor.id ? "scale-105" : "hover:scale-102"
+                      selectedDoctor?.id === doctor.id
+                        ? "scale-105"
+                        : "hover:scale-102"
                     }`}
                   >
                     <div
@@ -207,11 +223,15 @@ export default function AppointmentBooking() {
                           )}
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-bold text-slate-800 text-lg">{doctor.name}</h4>
+                          <h4 className="font-bold text-slate-800 text-lg">
+                            {doctor.name}
+                          </h4>
                           <p className="text-[#2AA7FF] font-semibold text-sm">
                             {doctor.specialization}
                           </p>
-                          <p className="text-slate-500 text-xs mt-1">{doctor.experience}</p>
+                          <p className="text-slate-500 text-xs mt-1">
+                            {doctor.experience}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -234,9 +254,12 @@ export default function AppointmentBooking() {
                   <div className="bg-gradient-to-br from-[#2AA7FF] to-[#00D9A5] rounded-full p-6 mb-6 animate-pulse">
                     <CheckCircle className="w-16 h-16 text-white" />
                   </div>
-                  <h4 className="text-3xl font-bold text-slate-800 mb-3">Success!</h4>
+                  <h4 className="text-3xl font-bold text-slate-800 mb-3">
+                    Success!
+                  </h4>
                   <p className="text-slate-600 text-center max-w-md">
-                    Your appointment has been booked successfully. We'll send you a confirmation email shortly.
+                    Your appointment has been booked successfully. We'll send
+                    you a confirmation email shortly.
                   </p>
                 </div>
               ) : (
@@ -253,14 +276,16 @@ export default function AppointmentBooking() {
                         name="fullName"
                         value={formData.fullName}
                         onChange={handleInputChange}
-                        className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 ${
-                          errors.fullName ? "border-red-400" : "border-slate-200"
-                        } focus:border-[#2AA7FF] focus:outline-none transition-all duration-300 bg-white/50 `}
+                        className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 text-slate-900 placeholder:text-slate-400 bg-white
+                        ${errors.fullName ? "border-red-400" : "border-slate-300"}
+                        focus:border-[#2AA7FF] focus:ring-4 focus:ring-[#2AA7FF]/20 focus:outline-none transition-all duration-300`}
                         placeholder="Enter your full name"
                       />
                     </div>
                     {errors.fullName && (
-                      <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.fullName}
+                      </p>
                     )}
                   </div>
 
@@ -277,14 +302,16 @@ export default function AppointmentBooking() {
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 ${
-                            errors.email ? "border-red-400" : "border-slate-200"
-                          } focus:border-[#2AA7FF] focus:outline-none transition-all duration-300 bg-white/80`}
+                          className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 text-slate-900 placeholder:text-slate-400 bg-white
+                          ${errors.email ? "border-red-400" : "border-slate-300"}
+                          focus:border-[#2AA7FF] focus:ring-4 focus:ring-[#2AA7FF]/20 focus:outline-none transition-all duration-300`}
                           placeholder="your@email.com"
                         />
                       </div>
                       {errors.email && (
-                        <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.email}
+                        </p>
                       )}
                     </div>
 
@@ -299,14 +326,16 @@ export default function AppointmentBooking() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 ${
-                            errors.phone ? "border-red-400" : "border-slate-200"
-                          } focus:border-[#2AA7FF] focus:outline-none transition-all duration-300 bg-white/80`}
+                          className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 text-slate-900 placeholder:text-slate-400 bg-white
+                          ${errors.email ? "border-red-400" : "border-slate-300"}
+                          focus:border-[#2AA7FF] focus:ring-4 focus:ring-[#2AA7FF]/20 focus:outline-none transition-all duration-300`}
                           placeholder="+91 98765 43210"
                         />
                       </div>
                       {errors.phone && (
-                        <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.phone}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -314,9 +343,15 @@ export default function AppointmentBooking() {
                   {/* Selected Doctor Display */}
                   {selectedDoctor && (
                     <div className="bg-gradient-to-r from-[#2AA7FF]/10 to-[#00D9A5]/10 rounded-xl p-4 border-2 border-[#2AA7FF]/20">
-                      <p className="text-sm text-slate-600 mb-1">Selected Doctor</p>
-                      <p className="font-bold text-slate-800">{selectedDoctor.name}</p>
-                      <p className="text-sm text-[#2AA7FF]">{selectedDoctor.specialization}</p>
+                      <p className="text-sm text-slate-600 mb-1">
+                        Selected Doctor
+                      </p>
+                      <p className="font-bold text-slate-800">
+                        {selectedDoctor.name}
+                      </p>
+                      <p className="text-sm text-[#2AA7FF]">
+                        {selectedDoctor.specialization}
+                      </p>
                     </div>
                   )}
 
@@ -333,9 +368,9 @@ export default function AppointmentBooking() {
                         value={formData.date}
                         onChange={handleInputChange}
                         min={getTodayDate()}
-                        className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 ${
-                          errors.date ? "border-red-400" : "border-slate-200"
-                        } focus:border-[#2AA7FF] focus:outline-none transition-all duration-300 bg-white/80`}
+                        className={`w-full pl-12 pr-4 py-3 rounded-xl border-2 text-slate-900 bg-white
+                        ${errors.date ? "border-red-400" : "border-slate-300"}
+                        focus:border-[#2AA7FF] focus:ring-4 focus:ring-[#2AA7FF]/20 focus:outline-none transition-all duration-300`}
                       />
                     </div>
                     {errors.date && (
@@ -385,7 +420,8 @@ export default function AppointmentBooking() {
                         value={formData.concern}
                         onChange={handleInputChange}
                         rows={4}
-                        className="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#2AA7FF] focus:outline-none transition-all duration-300 bg-white/80 resize-none"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-slate-300 text-slate-900 placeholder:text-slate-400 bg-white 
+                        focus:border-[#2AA7FF] focus:ring-4 focus:ring-[#2AA7FF]/20 focus:outline-none transition-all duration-300 resize-none"
                         placeholder="Tell us about your symptoms or health concerns..."
                       />
                     </div>
@@ -415,9 +451,12 @@ export default function AppointmentBooking() {
               <div className="bg-gradient-to-r from-[#00B8A9] to-[#00796B] text-white w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                 <Award className="w-7 h-7 text-white" />
               </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-2">Expert Doctors</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-2">
+                Expert Doctors
+              </h4>
               <p className="text-slate-600">
-                Highly qualified specialists with 10+ years of experience in their respective fields.
+                Highly qualified specialists with 10+ years of experience in
+                their respective fields.
               </p>
             </div>
 
@@ -425,9 +464,12 @@ export default function AppointmentBooking() {
               <div className="bg-gradient-to-r from-[#00B8A9] to-[#00796B] text-white w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                 <Shield className="w-7 h-7 text-white" />
               </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-2">Advanced Care</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-2">
+                Advanced Care
+              </h4>
               <p className="text-slate-600">
-                State-of-the-art medical equipment and cutting-edge treatment procedures.
+                State-of-the-art medical equipment and cutting-edge treatment
+                procedures.
               </p>
             </div>
 
@@ -435,9 +477,12 @@ export default function AppointmentBooking() {
               <div className="bg-gradient-to-r from-[#00B8A9] to-[#00796B] text-white w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                 <Clock3 className="w-7 h-7 text-white" />
               </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-2">24/7 Support</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-2">
+                24/7 Support
+              </h4>
               <p className="text-slate-600">
-                Round-the-clock emergency services and patient care for your peace of mind.
+                Round-the-clock emergency services and patient care for your
+                peace of mind.
               </p>
             </div>
           </div>
